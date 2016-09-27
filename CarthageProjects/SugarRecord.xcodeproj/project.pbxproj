@@ -1386,6 +1386,7 @@
 				PRODUCT_NAME = SugarRecordCoreData;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
+				USE_HEADERMAP = NO;
 			};
 			name = Debug;
 		};
@@ -1404,6 +1405,7 @@
 				PRODUCT_NAME = SugarRecordCoreData;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
+				USE_HEADERMAP = NO;
 			};
 			name = Release;
 		};
@@ -1425,6 +1427,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
+				USE_HEADERMAP = NO;
 				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Debug;
@@ -1447,6 +1450,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
+				USE_HEADERMAP = NO;
 				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Release;
@@ -1469,6 +1473,7 @@
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
+				USE_HEADERMAP = NO;
 			};
 			name = Debug;
 		};
@@ -1490,6 +1495,7 @@
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
+				USE_HEADERMAP = NO;
 			};
 			name = Release;
 		};
@@ -1513,6 +1519,7 @@
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
+				USE_HEADERMAP = NO;
 			};
 			name = Debug;
 		};
@@ -1536,6 +1543,7 @@
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
+				USE_HEADERMAP = NO;
 			};
 			name = Release;
 		};
@@ -1555,6 +1563,7 @@
 				PRODUCT_NAME = SugarRecord;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
+				USE_HEADERMAP = NO;
 			};
 			name = Debug;
 		};
@@ -1574,6 +1583,7 @@
 				PRODUCT_NAME = SugarRecord;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
+				USE_HEADERMAP = NO;
 			};
 			name = Release;
 		};
@@ -1596,6 +1606,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
+				USE_HEADERMAP = NO;
 				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Debug;
@@ -1619,6 +1630,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
+				USE_HEADERMAP = NO;
 				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Release;
@@ -1642,6 +1654,7 @@
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
+				USE_HEADERMAP = NO;
 			};
 			name = Debug;
 		};
@@ -1664,6 +1677,7 @@
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
+				USE_HEADERMAP = NO;
 			};
 			name = Release;
 		};
@@ -1688,6 +1702,7 @@
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
+				USE_HEADERMAP = NO;
 			};
 			name = Debug;
 		};
@@ -1712,6 +1727,7 @@
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
+				USE_HEADERMAP = NO;
 			};
 			name = Release;
 		};
