@@ -10,12 +10,12 @@ open class RequestObservable<T: Entity>: NSObject {
     
     // MARK: - Attributes
     
-    internal let request: FetchRequest<T>
+    public let request: FetchRequest<T>
     
     
     // MARK: - Init
     
-    internal init(request: FetchRequest<T>) {
+    public init(request: FetchRequest<T>) {
         self.request = request
     }
     
@@ -27,9 +27,9 @@ open class RequestObservable<T: Entity>: NSObject {
     }
     
     
-    // MARK: - Internal
+    // MARK: - public
     
-    internal func dispose() {
+    public func dispose() {
         assertionFailure("The observe method must be overriden")
     }
     

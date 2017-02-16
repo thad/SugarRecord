@@ -6,15 +6,15 @@ public class CoreDataObservable<T: NSManagedObject>: RequestObservable<T>, NSFet
 
     // MARK: - Attributes
 
-    internal let fetchRequest: NSFetchRequest<NSFetchRequestResult>
-    internal var observer: ((ObservableChange<T>) -> Void)?
-    internal let fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>
+    public let fetchRequest: NSFetchRequest<NSFetchRequestResult>
+    public var observer: ((ObservableChange<T>) -> Void)?
+    public let fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>
     private var batchChanges: [CoreDataChange<T>] = []
 
 
     // MARK: - Init
 
-    internal init(request: FetchRequest<T>, context: NSManagedObjectContext) {
+    public init(request: FetchRequest<T>, context: NSManagedObjectContext) {
 
         let fetchRequest: NSFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: T.entityName)
         if let predicate = request.predicate {

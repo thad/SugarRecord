@@ -5,13 +5,13 @@ open class RealmObservable<T: Object>: RequestObservable<T> {
     
     // MARK: - Attributes
     
-    internal let realm: Realm
-    internal var notificationToken: NotificationToken?
+    public let realm: Realm
+    public var notificationToken: NotificationToken?
     
     
     // MARK: - Init
     
-    internal init(request: FetchRequest<T>, realm: Realm) {
+    public init(request: FetchRequest<T>, realm: Realm) {
         self.realm = realm
         super.init(request: request)
     }

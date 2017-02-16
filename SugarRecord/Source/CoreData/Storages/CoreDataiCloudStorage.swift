@@ -5,11 +5,11 @@ public class CoreDataiCloudStorage: Storage {
     
     // MARK: - Attributes
     
-    internal let store: CoreDataStore
-    internal var objectModel: NSManagedObjectModel! = nil
-    internal var persistentStore: NSPersistentStore! = nil
-    internal var persistentStoreCoordinator: NSPersistentStoreCoordinator! = nil
-    internal var rootSavingContext: NSManagedObjectContext! = nil
+    public let store: CoreDataStore
+    public var objectModel: NSManagedObjectModel! = nil
+    public var persistentStore: NSPersistentStore! = nil
+    public var persistentStoreCoordinator: NSPersistentStoreCoordinator! = nil
+    public var rootSavingContext: NSManagedObjectContext! = nil
 
     
     // MARK: - Storage
@@ -89,7 +89,7 @@ public class CoreDataiCloudStorage: Storage {
         try self.init(model: model, iCloud: iCloud, versionController: VersionController())
     }
     
-    internal init(model: CoreDataObjectModel, iCloud: CoreDataiCloudConfig, versionController: VersionController) throws {
+    public init(model: CoreDataObjectModel, iCloud: CoreDataiCloudConfig, versionController: VersionController) throws {
         self.objectModel = model.model()!
         self.persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: objectModel)
         let result = try! cdiCloudInitializeStore(storeCoordinator: persistentStoreCoordinator, iCloud: iCloud)
@@ -128,7 +128,7 @@ public class CoreDataiCloudStorage: Storage {
     
 }
 
-internal func cdiCloudInitializeStore(storeCoordinator: NSPersistentStoreCoordinator, iCloud: CoreDataiCloudConfig) throws -> (CoreDataStore, NSPersistentStore?) {
+public func cdiCloudInitializeStore(storeCoordinator: NSPersistentStoreCoordinator, iCloud: CoreDataiCloudConfig) throws -> (CoreDataStore, NSPersistentStore?) {
     let storeURL = FileManager.default
         .url(forUbiquityContainerIdentifier: iCloud.ubiquitousContainerIdentifier)!
         .appendingPathComponent(iCloud.ubiquitousContentURL)

@@ -77,7 +77,7 @@ public struct FetchRequest<T: Entity>: Equatable {
     }
     
     
-    // MARK: - Internal
+    // MARK: - public
     
     func request(withPredicate predicate: NSPredicate) -> FetchRequest<T> {
         return FetchRequest<T>(context, sortDescriptor: sortDescriptor, predicate: predicate)

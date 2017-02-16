@@ -14,7 +14,7 @@ open class RealmDefaultStorage: Storage {
         self.init(configuration: configuration, versionController: VersionController())
     }
     
-    internal init(configuration: Realm.Configuration? = nil, versionController: VersionController) {
+    public init(configuration: Realm.Configuration? = nil, versionController: VersionController) {
         self.configuration = configuration
         #if DEBUG
         versionController.check()

@@ -1,22 +1,22 @@
 import Foundation
 
-internal class VersionProvider: NSObject {
+public class VersionProvider: NSObject {
     
     // MARK: - Constants
     
-    internal static let apiReleasesUrl: String = "https://api.github.com/repos/carambalabs/sugarrecord/releases"
+    public static let apiReleasesUrl: String = "https://api.github.com/repos/carambalabs/sugarrecord/releases"
 
     
-    // MARK: - Internal
+    // MARK: - public
     
-    internal func framework() -> String! {
+    public func framework() -> String! {
         if let version = Bundle(for: VersionProvider.classForCoder()).object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String {
             return version
         }
         return nil
     }
     
-    internal func github(_ completion: @escaping (String) -> Void) {
+    public func github(_ completion: @escaping (String) -> Void) {
         let request: URLRequest = URLRequest(url: URL(string: VersionProvider.apiReleasesUrl)!)
         URLSession(configuration: URLSessionConfiguration.default).dataTask(with: request, completionHandler: { (data, response, error) in
             if let data = data {
