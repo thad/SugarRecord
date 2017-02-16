@@ -44,7 +44,7 @@ public class CoreDataObservable<T: NSManagedObject>: RequestObservable<T>, NSFet
 
     // MARK: - Dipose Method
     
-    override func dispose() {
+    override open func dispose() {
         self.fetchedResultsController.delegate = nil
     }
 
