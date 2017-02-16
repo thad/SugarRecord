@@ -19,7 +19,7 @@ open class RealmObservable<T: Object>: RequestObservable<T> {
     
     // MARK: - Observable
     
-    open override open func observe(_ closure: @escaping (ObservableChange<T>) -> Void) {
+    open override func observe(_ closure: @escaping (ObservableChange<T>) -> Void) {
         assert(self.notificationToken == nil, "Observable can be observed only once")
         var realmObjects = self.realm.objects(T.self)
         if let predicate = self.request.predicate {
