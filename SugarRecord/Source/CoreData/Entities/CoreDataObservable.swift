@@ -33,7 +33,7 @@ public class CoreDataObservable<T: NSManagedObject>: RequestObservable<T>, NSFet
 
     // MARK: - Observable
 
-    public override func observe(_ closure: @escaping (ObservableChange<T>) -> Void) {
+    open override func observe(_ closure: @escaping (ObservableChange<T>) -> Void) {
         assert(self.observer == nil, "Observable can be observed only once")
         let initial = try! self.fetchedResultsController.managedObjectContext.fetch(self.fetchRequest) as! [T]
         closure(ObservableChange.initial(initial))

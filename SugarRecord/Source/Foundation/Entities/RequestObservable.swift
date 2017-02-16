@@ -23,14 +23,14 @@ open class RequestObservable<T: Entity>: NSObject {
     // MARK: - Public
     
     open func observe(_ closure: @escaping (ObservableChange<T>) -> Void) {
-        assertionFailure("The observe method must be overriden")
+        assertionFailure("The observe method must be override openn")
     }
     
     
     // MARK: - public
     
     public func dispose() {
-        assertionFailure("The observe method must be overriden")
+        assertionFailure("The observe method must be override openn")
     }
     
 }

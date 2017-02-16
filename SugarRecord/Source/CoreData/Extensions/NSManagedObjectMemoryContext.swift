@@ -3,7 +3,7 @@ import CoreData
 
 class NSManagedObjectMemoryContext: NSManagedObjectContext {
     
-    override func save() throws {
+    override open func save() throws {
         // Do nothing
     }
 
