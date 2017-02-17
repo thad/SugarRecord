@@ -5,7 +5,7 @@ open class CoreDataDefaultStorage: Storage {
     
     // MARK: - Attributes
     
-    public let store: CoreDataStore
+    public var store: CoreDataStore
     public var objectModel: NSManagedObjectModel! = nil
     public var persistentStore: NSPersistentStore! = nil
     public var persistentStoreCoordinator: NSPersistentStoreCoordinator! = nil

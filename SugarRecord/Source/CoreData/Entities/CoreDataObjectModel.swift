@@ -7,7 +7,7 @@ public enum CoreDataObjectModel {
     case merged([Bundle]?)
     case url(URL)
     
-    func model() -> NSManagedObjectModel? {
+    public func model() -> NSManagedObjectModel? {
         switch self {
         case .merged(let bundles):
             return NSManagedObjectModel.mergedModel(from: bundles)
