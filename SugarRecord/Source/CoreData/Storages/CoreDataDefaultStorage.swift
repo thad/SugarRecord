@@ -14,7 +14,7 @@ open class CoreDataDefaultStorage: Storage {
     
     // MARK: - Storage conformance
     
-    public var description: String {
+    open var description: String {
         get {
             return "CoreDataDefaultStorage"
         }
