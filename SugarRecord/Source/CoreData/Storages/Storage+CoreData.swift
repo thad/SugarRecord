@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 #if os(iOS) || os(tvOS) || os(watchOS)
 public extension Storage {
