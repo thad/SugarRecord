@@ -1,4 +1,5 @@
 import Foundation
+import CoreData
 
 public enum StorageType {
     case coreData
