@@ -1,11 +1,3 @@
-//
-//  CoreDataMemoryStorage.swift
-//  Carthage
-//
-//  Created by Gleb Oleinik on 2/16/17.
-//  Copyright © 2017 in.caramba.SugarRecord. All rights reserved.
-//
-
 import Foundation
 import CoreData
 
