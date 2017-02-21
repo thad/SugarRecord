@@ -1,6 +1,7 @@
 import Foundation
 import CoreData
 
+#if os(iOS) || os(tvOS) || os(watchOS)
 public class CoreDataDefaultStorage: Storage {
     
     // MARK: - Attributes
@@ -39,42 +40,6 @@ public class CoreDataDefaultStorage: Storage {
         return _context
     }
     
-    public func operation<T>(_ operation: @escaping (_ context: Context, _ save: @escaping () -> Void) throws -> T) throws -> T {
-        let context: NSManagedObjectContext = self.saveContext as! NSManagedObjectContext
-        var _error: Error!
-        
-        var returnedObject: T!
-        context.performAndWait {
-            do {
-                returnedObject = try operation(context, { () -> Void in
-                    do {
-                        try context.save()
-                    }
-                    catch {
-                        _error = error
-                    }
-                    self.rootSavingContext.performAndWait({
-                        if self.rootSavingContext.hasChanges {
-                            do {
-                                try self.rootSavingContext.save()
-                            }
-                            catch {
-                                _error = error
-                            }
-                        }
-                    })
-                })
-            } catch {
-                _error = error
-            }
-        }
-        if let error = _error {
-            throw error
-        }
-        
-        return returnedObject
-    }
-
     public func removeStore() throws {
         try FileManager.default.removeItem(at: store.path() as URL)
         _ = try? FileManager.default.removeItem(atPath: "\(store.path().absoluteString)-shm")
@@ -100,18 +65,8 @@ public class CoreDataDefaultStorage: Storage {
         versionController.check()
         #endif
     }
-    
-    
-    // MARK: - Public
-    
-#if os(iOS) || os(tvOS) || os(watchOS)
-    public func observable<T: NSManagedObject>(request: FetchRequest<T>) -> RequestObservable<T> where T:Equatable {
-        return CoreDataObservable(request: request, context: self.mainContext as! NSManagedObjectContext)
-    }
-#endif
-    
 }
-
+#endif
 
 // MARK: - Internal
 
