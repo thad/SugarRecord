@@ -15,7 +15,7 @@ protocol CoreDataStorage: Storage {
 }
 
 #if os(iOS) || os(tvOS) || os(watchOS)
-public extension CoreDataStorage {
+extension CoreDataStorage {
     public func observable<T: NSManagedObject>(request: FetchRequest<T>) -> RequestObservable<T> where T:Equatable {
         return CoreDataObservable(request: request, context: self.mainContext as! NSManagedObjectContext)
     }

@@ -14,6 +14,7 @@
 		21B7AA131E5CEB6B00331BDF /* Storage+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B7AA111E5CEB6B00331BDF /* Storage+CoreData.swift */; };
 		21B7AA141E5CEB6B00331BDF /* Storage+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B7AA111E5CEB6B00331BDF /* Storage+CoreData.swift */; };
 		21B7AA151E5CEB6B00331BDF /* Storage+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B7AA111E5CEB6B00331BDF /* Storage+CoreData.swift */; };
+		21B7AA161E5D062B00331BDF /* CoreDataMemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B7AA0C1E5CBC4700331BDF /* CoreDataMemoryStorage.swift */; };
 		237FBA2B1D9C0AD000D87AA3 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237FBA171D9C0AD000D87AA3 /* Request.swift */; };
 		237FBA2C1D9C0AD000D87AA3 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237FBA171D9C0AD000D87AA3 /* Request.swift */; };
 		237FBA2D1D9C0AD000D87AA3 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237FBA171D9C0AD000D87AA3 /* Request.swift */; };
@@ -1101,6 +1102,7 @@
 				237FBA4E1D9C0AD000D87AA3 /* RequestExtension.swift in Sources */,
 				237FBA7E1D9C0AD000D87AA3 /* Requestable.swift in Sources */,
 				237FBABA1D9C0ADC00D87AA3 /* CoreDataObjectModel.swift in Sources */,
+				21B7AA161E5D062B00331BDF /* CoreDataMemoryStorage.swift in Sources */,
 				237FBACA1D9C0ADC00D87AA3 /* CoreDataError.swift in Sources */,
 				237FBA3E1D9C0AD000D87AA3 /* Storage.swift in Sources */,
 				237FBA8E1D9C0AD000D87AA3 /* VersionController.swift in Sources */,
