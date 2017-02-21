@@ -2,13 +2,13 @@ import Foundation
 import CoreData
 
 #if os(iOS) || os(tvOS) || os(watchOS)
-public class MemoryStorage: Storage {
+public class MemoryStorage: CoreDataStorage {
     
     // MARK: - Attributes
     internal var objectModel: NSManagedObjectModel! = nil
     internal var persistentStore: NSPersistentStore! = nil
     internal var persistentStoreCoordinator: NSPersistentStoreCoordinator! = nil
-    internal var rootSavingContext: NSManagedObjectContext! = nil
+    var rootSavingContext: NSManagedObjectContext! = nil
     
     
     // MARK: - Storage conformance

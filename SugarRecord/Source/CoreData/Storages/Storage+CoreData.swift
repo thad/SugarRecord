@@ -9,13 +9,18 @@
 import Foundation
 import CoreData
 
+
+protocol CoreDataStorage: Storage {
+    var rootSavingContext: NSManagedObjectContext! { get }
+}
+
 #if os(iOS) || os(tvOS) || os(watchOS)
-public extension Storage {
+public extension CoreDataStorage {
     public func observable<T: NSManagedObject>(request: FetchRequest<T>) -> RequestObservable<T> where T:Equatable {
         return CoreDataObservable(request: request, context: self.mainContext as! NSManagedObjectContext)
     }
     
-    func operation<T>(_ operation: @escaping (_ context: Context, _ save: @escaping () -> Void) throws -> T) throws -> T {
+    public func operation<T>(_ operation: @escaping (_ context: Context, _ save: @escaping () -> Void) throws -> T) throws -> T {
         let context: NSManagedObjectContext = self.saveContext as! NSManagedObjectContext
         var _error: Error!
         

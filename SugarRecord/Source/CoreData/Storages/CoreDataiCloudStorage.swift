@@ -1,7 +1,7 @@
 import Foundation
 import CoreData
 
-public class CoreDataiCloudStorage: Storage {
+public class CoreDataiCloudStorage: CoreDataStorage {
     
     // MARK: - Attributes
     
@@ -9,7 +9,7 @@ public class CoreDataiCloudStorage: Storage {
     internal var objectModel: NSManagedObjectModel! = nil
     internal var persistentStore: NSPersistentStore! = nil
     internal var persistentStoreCoordinator: NSPersistentStoreCoordinator! = nil
-    internal var rootSavingContext: NSManagedObjectContext! = nil
+    public var rootSavingContext: NSManagedObjectContext! = nil
 
     
     // MARK: - Storage
