@@ -2,7 +2,7 @@ import Foundation
 import CoreData
 
 #if os(iOS) || os(tvOS) || os(watchOS)
-public class MemoryStorage: CoreDataStorage {
+public class CoreDataMemoryStorage: CoreDataStorage {
     
     // MARK: - Attributes
     internal var objectModel: NSManagedObjectModel! = nil
