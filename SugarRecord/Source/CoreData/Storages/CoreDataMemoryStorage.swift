@@ -25,9 +25,12 @@ public class MemoryStorage: CoreDataStorage {
             return context
         }
         let _context = memoryContext
-        _context.observe(inMainThread: true) { [weak self] (notification) -> Void in
-            (self?.mainContext as? NSManagedObjectContext)?.mergeChanges(fromContextDidSave: notification as Notification)
+        if let moc = _context as? NSManagedObjectContext {
+            moc.observe(inMainThread: true) { [weak self] (notification) -> Void in
+                (self?.mainContext as? NSManagedObjectContext)?.mergeChanges(fromContextDidSave: notification as Notification)
+            }
         }
+       
         self._saveContext = _context
         return _context
     }
