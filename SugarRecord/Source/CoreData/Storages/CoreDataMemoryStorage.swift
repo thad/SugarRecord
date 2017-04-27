@@ -1,7 +1,6 @@
 import Foundation
 import CoreData
 
-#if os(iOS) || os(tvOS) || os(watchOS)
 public class CoreDataMemoryStorage: CoreDataStorage {
     
     // MARK: - Attributes
@@ -73,4 +72,3 @@ fileprivate func cdInitializeStore(storeCoordinator: NSPersistentStoreCoordinato
     
     return store
 }
-#endif

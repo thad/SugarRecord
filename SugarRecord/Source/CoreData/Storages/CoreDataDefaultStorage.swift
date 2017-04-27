@@ -1,7 +1,6 @@
 import Foundation
 import CoreData
 
-#if os(iOS) || os(tvOS) || os(watchOS)
 public class CoreDataDefaultStorage: CoreDataStorage {
     
     // MARK: - Attributes
@@ -10,8 +9,8 @@ public class CoreDataDefaultStorage: CoreDataStorage {
     internal var objectModel: NSManagedObjectModel! = nil
     internal var persistentStore: NSPersistentStore! = nil
     internal var persistentStoreCoordinator: NSPersistentStoreCoordinator! = nil
-    var rootSavingContext: NSManagedObjectContext! = nil
-
+    internal var rootSavingContext: NSManagedObjectContext! = nil
+    
     
     // MARK: - Storage conformance
     
@@ -40,11 +39,47 @@ public class CoreDataDefaultStorage: CoreDataStorage {
         return _context
     }
     
+    public func operation<T>(_ operation: @escaping (_ context: Context, _ save: @escaping () -> Void) throws -> T) throws -> T {
+        let context: NSManagedObjectContext = self.saveContext as! NSManagedObjectContext
+        var _error: Error!
+        
+        var returnedObject: T!
+        context.performAndWait {
+            do {
+                returnedObject = try operation(context, { () -> Void in
+                    do {
+                        try context.save()
+                    }
+                    catch {
+                        _error = error
+                    }
+                    self.rootSavingContext.performAndWait({
+                        if self.rootSavingContext.hasChanges {
+                            do {
+                                try self.rootSavingContext.save()
+                            }
+                            catch {
+                                _error = error
+                            }
+                        }
+                    })
+                })
+            } catch {
+                _error = error
+            }
+        }
+        if let error = _error {
+            throw error
+        }
+        
+        return returnedObject
+    }
+    
     public func removeStore() throws {
         try FileManager.default.removeItem(at: store.path() as URL)
         _ = try? FileManager.default.removeItem(atPath: "\(store.path().absoluteString)-shm")
         _ = try? FileManager.default.removeItem(atPath: "\(store.path().absoluteString)-wal")
-
+        
     }
     
     
@@ -62,11 +97,12 @@ public class CoreDataDefaultStorage: CoreDataStorage {
         self.rootSavingContext = cdContext(withParent: .coordinator(self.persistentStoreCoordinator), concurrencyType: .privateQueueConcurrencyType, inMemory: false)
         self.mainContext = cdContext(withParent: .context(self.rootSavingContext), concurrencyType: .mainQueueConcurrencyType, inMemory: false)
         #if DEBUG
-        versionController.check()
+            versionController.check()
         #endif
     }
+        
 }
-#endif
+
 
 // MARK: - Internal
 
