@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21B7AA0E1E5CBC7700331BDF /* CoreDataMemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B7AA0C1E5CBC4700331BDF /* CoreDataMemoryStorage.swift */; };
+		21B7AA0F1E5CBC7800331BDF /* CoreDataMemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B7AA0C1E5CBC4700331BDF /* CoreDataMemoryStorage.swift */; };
+		21B7AA101E5CBC7A00331BDF /* CoreDataMemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B7AA0C1E5CBC4700331BDF /* CoreDataMemoryStorage.swift */; };
+		237FBA2B1D9C0AD000D87AA3 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237FBA171D9C0AD000D87AA3 /* Request.swift */; };
 		237FBA2C1D9C0AD000D87AA3 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237FBA171D9C0AD000D87AA3 /* Request.swift */; };
 		237FBA2E1D9C0AD000D87AA3 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237FBA171D9C0AD000D87AA3 /* Request.swift */; };
 		237FBA301D9C0AD000D87AA3 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237FBA171D9C0AD000D87AA3 /* Request.swift */; };
@@ -117,6 +121,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		21B7AA0C1E5CBC4700331BDF /* CoreDataMemoryStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataMemoryStorage.swift; sourceTree = "<group>"; };
 		2334C46A1D7DD8A500ACBC3A /* SugarRecordCoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SugarRecordCoreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2334C4981D7DD90800ACBC3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2334C49E1D7DD93600ACBC3A /* SugarRecordCoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SugarRecordCoreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -417,6 +422,7 @@
 			children = (
 				237FBAAB1D9C0ADC00D87AA3 /* CoreDataDefaultStorage.swift */,
 				237FBAAC1D9C0ADC00D87AA3 /* CoreDataiCloudStorage.swift */,
+				21B7AA0C1E5CBC4700331BDF /* CoreDataMemoryStorage.swift */,
 			);
 			path = Storages;
 			sourceTree = "<group>";
@@ -733,6 +739,7 @@
 				237FBAAD1D9C0ADC00D87AA3 /* CoreDataChange.swift in Sources */,
 				237FBA4C1D9C0AD000D87AA3 /* RequestExtension.swift in Sources */,
 				237FBA7C1D9C0AD000D87AA3 /* Requestable.swift in Sources */,
+				21B7AA0E1E5CBC7700331BDF /* CoreDataMemoryStorage.swift in Sources */,
 				237FBAB91D9C0ADC00D87AA3 /* CoreDataObjectModel.swift in Sources */,
 				237FBAC91D9C0ADC00D87AA3 /* CoreDataError.swift in Sources */,
 				237FBA3C1D9C0AD000D87AA3 /* Storage.swift in Sources */,
@@ -777,6 +784,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21B7AA0F1E5CBC7800331BDF /* CoreDataMemoryStorage.swift in Sources */,
 				237FBAC71D9C0ADC00D87AA3 /* CoreDataStore.swift in Sources */,
 				237FBAD31D9C0ADC00D87AA3 /* NSManagedObjectContext.swift in Sources */,
 				237FBADB1D9C0ADC00D87AA3 /* CoreDataDefaultStorage.swift in Sources */,
@@ -833,6 +841,7 @@
 				237FBAB01D9C0ADC00D87AA3 /* CoreDataChange.swift in Sources */,
 				237FBA521D9C0AD000D87AA3 /* RequestExtension.swift in Sources */,
 				237FBA821D9C0AD000D87AA3 /* Requestable.swift in Sources */,
+				21B7AA101E5CBC7A00331BDF /* CoreDataMemoryStorage.swift in Sources */,
 				237FBABC1D9C0ADC00D87AA3 /* CoreDataObjectModel.swift in Sources */,
 				237FBACC1D9C0ADC00D87AA3 /* CoreDataError.swift in Sources */,
 				237FBA421D9C0AD000D87AA3 /* Storage.swift in Sources */,
