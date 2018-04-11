@@ -128,9 +128,9 @@ open class CoreDataDefaultStorage: Storage {
     }
 }
 
-// MARK: - public
+// MARK: - Internal
 
-public func cdContext(withParent parent: CoreDataContextParent?, concurrencyType: NSManagedObjectContextConcurrencyType, inMemory: Bool) -> NSManagedObjectContext {
+internal func cdContext(withParent parent: CoreDataContextParent?, concurrencyType: NSManagedObjectContextConcurrencyType, inMemory: Bool) -> NSManagedObjectContext {
     var context: NSManagedObjectContext?
     if inMemory {
         context = NSManagedObjectMemoryContext(concurrencyType: concurrencyType)

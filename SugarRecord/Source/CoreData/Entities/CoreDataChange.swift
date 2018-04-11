@@ -1,12 +1,12 @@
 import Foundation
 
-public enum CoreDataChange<T> {
+internal enum CoreDataChange<T> {
     
     case update(Int, T)
     case delete(Int, T)
     case insert(Int, T)
     
-    public func object() -> T {
+    internal func object() -> T {
         switch self {
         case .update(_, let object): return object
         case .delete(_, let object): return object
@@ -14,7 +14,7 @@ public enum CoreDataChange<T> {
         }
     }
     
-    public func index() -> Int {
+    internal func index() -> Int {
         switch self {
         case .update(let index, _): return index
         case .delete(let index, _): return index
@@ -22,21 +22,21 @@ public enum CoreDataChange<T> {
         }
     }
     
-    public var isDeletion: Bool {
+    internal var isDeletion: Bool {
         switch self {
         case .delete(_): return true
         default: return false
         }
     }
     
-    public var isUpdate: Bool {
+    internal var isUpdate: Bool {
         switch self {
         case .update(_): return true
         default: return false
         }
     }
     
-    public var isInsertion: Bool {
+    internal var isInsertion: Bool {
         switch self {
         case .insert(_): return true
         default: return false

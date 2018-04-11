@@ -78,4 +78,4 @@ fileprivate func cdInitializeStore(storeCoordinator: NSPersistentStoreCoordinato
     
     return store
 }
- 
+#endif

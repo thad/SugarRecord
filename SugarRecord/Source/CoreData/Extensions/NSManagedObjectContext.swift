@@ -49,12 +49,12 @@ extension NSManagedObjectContext: Context {
 
 extension NSManagedObjectContext {
     
-    public func observe(inMainThread mainThread: Bool, saveNotification: @escaping (_ notification: Notification) -> Void) {
+    func observe(inMainThread mainThread: Bool, saveNotification: @escaping (_ notification: Notification) -> Void) {
         let queue: OperationQueue = mainThread ? OperationQueue.main : OperationQueue()
         NotificationCenter.default.addObserver(forName: NSNotification.Name.NSManagedObjectContextDidSave, object: self, queue: queue, using: saveNotification)
     }
     
-    public func observeToGetPermanentIDsBeforeSaving() {
+    func observeToGetPermanentIDsBeforeSaving() {
         NotificationCenter.default.addObserver(forName: NSNotification.Name.NSManagedObjectContextWillSave, object: self, queue: nil, using: { [weak self] (notification) in
             guard let s = self else {
                 return

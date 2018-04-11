@@ -6,15 +6,15 @@ public class CoreDataObservable<T: NSManagedObject>: RequestObservable<T>, NSFet
 
     // MARK: - Attributes
 
-    public let fetchRequest: NSFetchRequest<NSFetchRequestResult>
-    public var observer: ((ObservableChange<T>) -> Void)?
-    public let fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>
+    internal let fetchRequest: NSFetchRequest<NSFetchRequestResult>
+    internal var observer: ((ObservableChange<T>) -> Void)?
+    internal let fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>
     private var batchChanges: [CoreDataChange<T>] = []
 
 
     // MARK: - Init
 
-    public init(request: FetchRequest<T>, context: NSManagedObjectContext) {
+    internal init(request: FetchRequest<T>, context: NSManagedObjectContext) {
 
         let fetchRequest: NSFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: T.entityName)
         if let predicate = request.predicate {
@@ -33,7 +33,7 @@ public class CoreDataObservable<T: NSManagedObject>: RequestObservable<T>, NSFet
 
     // MARK: - Observable
 
-    open override func observe(_ closure: @escaping (ObservableChange<T>) -> Void) {
+    public override func observe(_ closure: @escaping (ObservableChange<T>) -> Void) {
         assert(self.observer == nil, "Observable can be observed only once")
         let initial = try! self.fetchedResultsController.managedObjectContext.fetch(self.fetchRequest) as! [T]
         closure(ObservableChange.initial(initial))
@@ -44,7 +44,7 @@ public class CoreDataObservable<T: NSManagedObject>: RequestObservable<T>, NSFet
 
     // MARK: - Dipose Method
     
-    override open func dispose() {
+    override func dispose() {
         self.fetchedResultsController.delegate = nil
     }
 

@@ -4,12 +4,12 @@ public struct CoreDataiCloudConfig {
     
     // MARK: - Attributes
     
-    public let ubiquitousContentName: String
-    public let ubiquitousContentURL: String
-    public let ubiquitousContainerIdentifier: String
-    public let ubiquitousPeerTokenOption: String?
-    public let removeUbiquitousMetadataOption: Bool?
-    public let rebuildFromUbiquitousContentOption: Bool?
+    internal let ubiquitousContentName: String
+    internal let ubiquitousContentURL: String
+    internal let ubiquitousContainerIdentifier: String
+    internal let ubiquitousPeerTokenOption: String?
+    internal let removeUbiquitousMetadataOption: Bool?
+    internal let rebuildFromUbiquitousContentOption: Bool?
     
     
     // MARK: - Init
