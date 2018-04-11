@@ -1,10 +1,10 @@
 import Foundation
 
-public class Logger {
+internal class Logger {
     
-    // MARK: - public
+    // MARK: - Internal
     
-    public func log(_ message: String) {
+    internal func log(_ message: String) {
         print("🍬 SugarRecord: \(message)")
     }
     

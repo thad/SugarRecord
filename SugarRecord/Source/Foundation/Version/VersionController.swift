@@ -1,6 +1,6 @@
 import Foundation
 
-public class VersionController {
+internal class VersionController {
     
     // MARK: - Attributes
     
@@ -10,16 +10,16 @@ public class VersionController {
     
     // MARK: - Init
     
-    public init(provider: VersionProvider = VersionProvider(),
+    internal init(provider: VersionProvider = VersionProvider(),
                   logger: Logger = Logger()) {
         self.provider = provider
         self.logger = logger
     }
     
     
-    // MARK: - public
+    // MARK: - Internal
     
-    public func check() {
+    internal func check() {
         let frameworkVersion = self.provider.framework()
         self.provider.github { [weak self] (githubVersion) in
             if frameworkVersion != githubVersion {

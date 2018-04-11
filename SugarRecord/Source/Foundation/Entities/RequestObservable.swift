@@ -10,12 +10,12 @@ open class RequestObservable<T: Entity>: NSObject {
     
     // MARK: - Attributes
     
-    public let request: FetchRequest<T>
+    internal let request: FetchRequest<T>
     
     
     // MARK: - Init
     
-    public init(request: FetchRequest<T>) {
+    internal init(request: FetchRequest<T>) {
         self.request = request
     }
     
@@ -23,14 +23,14 @@ open class RequestObservable<T: Entity>: NSObject {
     // MARK: - Public
     
     open func observe(_ closure: @escaping (ObservableChange<T>) -> Void) {
-        assertionFailure("The observe method must be override openn")
+        assertionFailure("The observe method must be overriden")
     }
     
     
-    // MARK: - public
+    // MARK: - Internal
     
-    public func dispose() {
-        assertionFailure("The observe method must be override openn")
+    internal func dispose() {
+        assertionFailure("The observe method must be overriden")
     }
     
 }
