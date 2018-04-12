@@ -9,38 +9,23 @@
 import Foundation
 import CoreData
 
-#if os(iOS) || os(tvOS) || os(watchOS)
-public class MemoryStorage: Storage {
-    
-    // MARK: - Attributes
-    internal var objectModel: NSManagedObjectModel! = nil
-    internal var persistentStore: NSPersistentStore! = nil
-    internal var persistentStoreCoordinator: NSPersistentStoreCoordinator! = nil
-    internal var rootSavingContext: NSManagedObjectContext! = nil
-    
+public class MemoryStorage: CoreDataBaseStorage, Storage {
     
     // MARK: - Storage conformance
     
     public var description: String {
         return "CoreDataMemoryStorage"
     }
-    
-    public var type: StorageType = .coreData
-    public var mainContext: Context!
-    private var _saveContext: Context!
-    public var saveContext: Context! {
+
+    override public var saveContext: Context! {
         if let context = self._saveContext {
             return context
         }
-        let _context = memoryContext
+        let _context = memoryContext as! NSManagedObjectContext
         _context.observe(inMainThread: true) { [weak self] (notification) -> Void in
             (self?.mainContext as? NSManagedObjectContext)?.mergeChanges(fromContextDidSave: notification as Notification)
         }
         self._saveContext = _context
-        return _context
-    }
-    public var memoryContext: Context! {
-        let _context =  cdContext(withParent: .context(self.rootSavingContext), concurrencyType: .privateQueueConcurrencyType, inMemory: true)
         return _context
     }
     
@@ -49,12 +34,9 @@ public class MemoryStorage: Storage {
     }
     
     // MARK: - Init
-    public init(model: CoreDataObjectModel) throws {
-        self.objectModel = model.model()!
-        self.persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: objectModel)
-        self.persistentStore = try cdInitializeStore(storeCoordinator: persistentStoreCoordinator)
-        self.rootSavingContext = cdContext(withParent: .coordinator(self.persistentStoreCoordinator), concurrencyType: .privateQueueConcurrencyType, inMemory: true)
-        self.mainContext = cdContext(withParent: .context(self.rootSavingContext), concurrencyType: .mainQueueConcurrencyType, inMemory: true)
+    public override init(model: CoreDataObjectModel) {
+        super.init(model: model)
+        self.persistentStore = try? cdInitializeStore(storeCoordinator: persistentStoreCoordinator)
     }
 }
 
@@ -78,4 +60,3 @@ fileprivate func cdInitializeStore(storeCoordinator: NSPersistentStoreCoordinato
     
     return store
 }
-#endif

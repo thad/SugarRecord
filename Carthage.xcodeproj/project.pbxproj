@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		218871A9207ECCFD00BEE97A /* CoraDataBaseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218871A8207ECCFD00BEE97A /* CoraDataBaseStorage.swift */; };
+		218871AA207ED75500BEE97A /* CoraDataBaseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218871A8207ECCFD00BEE97A /* CoraDataBaseStorage.swift */; };
+		218871AB207ED75600BEE97A /* CoraDataBaseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218871A8207ECCFD00BEE97A /* CoraDataBaseStorage.swift */; };
+		218871AC207ED75B00BEE97A /* CoraDataBaseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218871A8207ECCFD00BEE97A /* CoraDataBaseStorage.swift */; };
 		21B7AA0E1E5CBC7700331BDF /* CoreDataMemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B7AA0C1E5CBC4700331BDF /* CoreDataMemoryStorage.swift */; };
 		21B7AA0F1E5CBC7800331BDF /* CoreDataMemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B7AA0C1E5CBC4700331BDF /* CoreDataMemoryStorage.swift */; };
 		21B7AA101E5CBC7A00331BDF /* CoreDataMemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B7AA0C1E5CBC4700331BDF /* CoreDataMemoryStorage.swift */; };
-		237FBA2B1D9C0AD000D87AA3 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237FBA171D9C0AD000D87AA3 /* Request.swift */; };
 		237FBA2C1D9C0AD000D87AA3 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237FBA171D9C0AD000D87AA3 /* Request.swift */; };
 		237FBA2E1D9C0AD000D87AA3 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237FBA171D9C0AD000D87AA3 /* Request.swift */; };
 		237FBA301D9C0AD000D87AA3 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237FBA171D9C0AD000D87AA3 /* Request.swift */; };
@@ -121,6 +124,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		218871A8207ECCFD00BEE97A /* CoraDataBaseStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoraDataBaseStorage.swift; sourceTree = "<group>"; };
 		21B7AA0C1E5CBC4700331BDF /* CoreDataMemoryStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataMemoryStorage.swift; sourceTree = "<group>"; };
 		2334C46A1D7DD8A500ACBC3A /* SugarRecordCoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SugarRecordCoreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2334C4981D7DD90800ACBC3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -423,6 +427,7 @@
 				237FBAAB1D9C0ADC00D87AA3 /* CoreDataDefaultStorage.swift */,
 				237FBAAC1D9C0ADC00D87AA3 /* CoreDataiCloudStorage.swift */,
 				21B7AA0C1E5CBC4700331BDF /* CoreDataMemoryStorage.swift */,
+				218871A8207ECCFD00BEE97A /* CoraDataBaseStorage.swift */,
 			);
 			path = Storages;
 			sourceTree = "<group>";
@@ -725,6 +730,7 @@
 				237FBA941D9C0AD000D87AA3 /* VersionProvider.swift in Sources */,
 				237FBA541D9C0AD000D87AA3 /* Logger.swift in Sources */,
 				237FBA341D9C0AD000D87AA3 /* RequestObservable.swift in Sources */,
+				218871A9207ECCFD00BEE97A /* CoraDataBaseStorage.swift in Sources */,
 				237FBADD1D9C0ADC00D87AA3 /* CoreDataiCloudStorage.swift in Sources */,
 				237FBA741D9C0AD000D87AA3 /* NSSortDescriptorConvertible.swift in Sources */,
 				237FBACD1D9C0ADC00D87AA3 /* NSManagedObject.swift in Sources */,
@@ -756,6 +762,7 @@
 				237FBADA1D9C0ADC00D87AA3 /* CoreDataDefaultStorage.swift in Sources */,
 				237FBA461D9C0AD000D87AA3 /* StorageError.swift in Sources */,
 				237FBAD61D9C0ADC00D87AA3 /* NSManagedObjectMemoryContext.swift in Sources */,
+				218871AC207ED75B00BEE97A /* CoraDataBaseStorage.swift in Sources */,
 				237FBAB61D9C0ADC00D87AA3 /* CoreDataiCloudConfig.swift in Sources */,
 				237FBA961D9C0AD000D87AA3 /* VersionProvider.swift in Sources */,
 				237FBA561D9C0AD000D87AA3 /* Logger.swift in Sources */,
@@ -807,6 +814,7 @@
 				237FBAAF1D9C0ADC00D87AA3 /* CoreDataChange.swift in Sources */,
 				237FBA501D9C0AD000D87AA3 /* RequestExtension.swift in Sources */,
 				237FBA801D9C0AD000D87AA3 /* Requestable.swift in Sources */,
+				218871AB207ED75600BEE97A /* CoraDataBaseStorage.swift in Sources */,
 				237FBABB1D9C0ADC00D87AA3 /* CoreDataObjectModel.swift in Sources */,
 				237FBACB1D9C0ADC00D87AA3 /* CoreDataError.swift in Sources */,
 				237FBA401D9C0AD000D87AA3 /* Storage.swift in Sources */,
@@ -827,6 +835,7 @@
 				237FBA9A1D9C0AD000D87AA3 /* VersionProvider.swift in Sources */,
 				237FBA5A1D9C0AD000D87AA3 /* Logger.swift in Sources */,
 				237FBA3A1D9C0AD000D87AA3 /* RequestObservable.swift in Sources */,
+				218871AA207ED75500BEE97A /* CoraDataBaseStorage.swift in Sources */,
 				237FBAE01D9C0ADC00D87AA3 /* CoreDataiCloudStorage.swift in Sources */,
 				237FBA7A1D9C0AD000D87AA3 /* NSSortDescriptorConvertible.swift in Sources */,
 				237FBAD01D9C0ADC00D87AA3 /* NSManagedObject.swift in Sources */,
