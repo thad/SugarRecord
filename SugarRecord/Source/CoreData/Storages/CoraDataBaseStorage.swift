@@ -117,7 +117,7 @@ public class CoreDataBaseStorage {
     
     // MARK: - Init
     
-    public init(model: CoreDataObjectModel) {
+    internal init(model: CoreDataObjectModel, versionController: VersionController) {
         self.objectModel = model.model()!
         self.rootSavingContext = cdContext(withParent: .coordinator(self.persistentStoreCoordinator), concurrencyType: .privateQueueConcurrencyType, inMemory: false)
         self.mainContext = cdContext(withParent: .context(self.rootSavingContext), concurrencyType: .mainQueueConcurrencyType, inMemory: false)

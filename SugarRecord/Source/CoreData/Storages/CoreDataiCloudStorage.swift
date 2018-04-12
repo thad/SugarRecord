@@ -38,7 +38,7 @@ public class CoreDataiCloudStorage: CoreDataBaseStorage, Storage {
     }
     
     internal init(model: CoreDataObjectModel, iCloud: CoreDataiCloudConfig, versionController: VersionController) throws {        
-        super.init(model: model)
+        super.init(model: model, versionController: versionController)
         self.persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: objectModel)
         
         let result = try! cdiCloudInitializeStore(storeCoordinator: persistentStoreCoordinator, iCloud: iCloud)

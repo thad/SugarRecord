@@ -29,7 +29,7 @@ public class CoreDataDefaultStorage: CoreDataBaseStorage, Storage {
     }
     
     internal init(store: CoreDataStore, model: CoreDataObjectModel, migrate: Bool = true, versionController: VersionController) throws {
-        super.init(model: model)
+        super.init(model: model, versionController: versionController)
         self.store = store
         self.persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: objectModel)
         self.persistentStore = try cdInitializeStore(store: store, storeCoordinator: persistentStoreCoordinator, migrate: migrate)

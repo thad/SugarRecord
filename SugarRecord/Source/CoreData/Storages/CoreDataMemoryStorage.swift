@@ -34,9 +34,9 @@ public class MemoryStorage: CoreDataBaseStorage, Storage {
     }
     
     // MARK: - Init
-    public override init(model: CoreDataObjectModel) {
-        super.init(model: model)
-        self.persistentStore = try? cdInitializeStore(storeCoordinator: persistentStoreCoordinator)
+    public init(model: CoreDataObjectModel) throws {
+        super.init(model: model, versionController: VersionController())
+        self.persistentStore = try cdInitializeStore(storeCoordinator: persistentStoreCoordinator)
     }
 }
 
