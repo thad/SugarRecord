@@ -63,9 +63,9 @@ A storage represents your database. The first step to start using SugarRecord is
 ```swift
 // Initializing CoreDataDefaultStorage
 func coreDataStorage() -> CoreDataDefaultStorage {
-    let store = CoreData.Store.Named("db")
-    let bundle = Bundle(forClass: self.classForCoder())
-    let model = CoreData.ObjectModel.merged([bundle])
+    let store = CoreDataStore.named("db")
+    let bundle = Bundle(for: self.classForCoder)
+    let model = CoreDataObjectModel.merged([bundle])
     let defaultStorage = try! CoreDataDefaultStorage(store: store, model: model)
     return defaultStorage
 }
@@ -78,10 +78,11 @@ SugarRecord supports the integration of CoreData with iCloud. It's very easy to 
 ```swift
 // Initializes the CoreDataiCloudStorage
 func icloudStorage() -> CoreDataiCloudStorage {
-    let bundle = Bundle(forClass: self.classForCoder())
-    let model = CoreData.ObjectModel.merged([bundle])
+    let bundle = Bundle(for: self.classForCoder)
+    let model = CoreDataObjectModel.merged([bundle])
     let icloudConfig = CoreDataiCloudConfig(ubiquitousContentName: "MyDb", ubiquitousContentURL: "Path/", ubiquitousContainerIdentifier: "com.company.MyApp.anothercontainer")
-    return CoreDataiCloudStorage(model: model, iCloud: icloudConfig)
+    let icloudStorage = try! CoreDataiCloudStorage(model: model, iCloud: icloudConfig)
+    return icloudStorage
 }
 ```
 
@@ -201,7 +202,7 @@ class Presenter {
 
 > **NOTE**: This was renamed from Observable -> RequestObservable so we are no longer stomping on the RxSwift Observable namespace.
 
-**:warning: `RequestObservable` is not available for CoreData + OSX**
+**:warning: `RequestObservable` is only available for CoreData + OSX since MacOS 10.12**
 
 ## Resources
 - [Quick](https://github.com/quick/quick)
@@ -210,9 +211,25 @@ class Presenter {
 - [Jazzy](https://github.com/realm/jazzy)
 - [iCloud + CoreData (objc.io)](http://www.objc.io/issue-10/icloud-core-data.html)
 
+## Contributors
+
+[<img alt="glebo" src="https://avatars3.githubusercontent.com/u/3298239?v=4&s=117" width="117">](https://github.com/glebo)[<img alt="sushichop" src="https://avatars3.githubusercontent.com/u/5669641?v=4&s=117" width="117">](https://github.com/sushichop)[<img alt="foxling" src="https://avatars3.githubusercontent.com/u/506125?v=4&s=117" width="117">](https://github.com/foxling)[<img alt="ZevEisenberg" src="https://avatars2.githubusercontent.com/u/464574?v=4&s=117" width="117">](https://github.com/ZevEisenberg)[<img alt="konyu" src="https://avatars2.githubusercontent.com/u/1217706?v=4&s=117" width="117">](https://github.com/konyu)
+
+[<img alt="yuuki1224" src="https://avatars2.githubusercontent.com/u/1756640?v=4&s=117" width="117">](https://github.com/yuuki1224)[<img alt="YTN01" src="https://avatars3.githubusercontent.com/u/5421955?v=4&s=117" width="117">](https://github.com/YTN01)[<img alt="gitter-badger" src="https://avatars2.githubusercontent.com/u/8518239?v=4&s=117" width="117">](https://github.com/gitter-badger)[<img alt="sergigracia" src="https://avatars3.githubusercontent.com/u/1061658?v=4&s=117" width="117">](https://github.com/sergigracia)[<img alt="adityatrivedi" src="https://avatars0.githubusercontent.com/u/1791760?v=4&s=117" width="117">](https://github.com/adityatrivedi)
+
+[<img alt="Adlai-Holler" src="https://avatars2.githubusercontent.com/u/2466893?v=4&s=117" width="117">](https://github.com/Adlai-Holler)[<img alt="akshaynhegde" src="https://avatars0.githubusercontent.com/u/3814615?v=4&s=117" width="117">](https://github.com/akshaynhegde)[<img alt="goingreen" src="https://avatars2.githubusercontent.com/u/16046834?v=4&s=117" width="117">](https://github.com/goingreen)[<img alt="startupthekid" src="https://avatars3.githubusercontent.com/u/3139429?v=4&s=117" width="117">](https://github.com/startupthekid)[<img alt="ctotheameron" src="https://avatars0.githubusercontent.com/u/3002968?v=4&s=117" width="117">](https://github.com/ctotheameron)
+
+[<img alt="davidahouse" src="https://avatars2.githubusercontent.com/u/140127?v=4&s=117" width="117">](https://github.com/davidahouse)[<img alt="A8-Moke" src="https://avatars2.githubusercontent.com/u/12935988?v=4&s=117" width="117">](https://github.com/A8-Moke)[<img alt="Arasthel" src="https://avatars1.githubusercontent.com/u/480955?v=4&s=117" width="117">](https://github.com/Arasthel)[<img alt="LuizZak" src="https://avatars3.githubusercontent.com/u/6502879?v=4&s=117" width="117">](https://github.com/LuizZak)[<img alt="literator" src="https://avatars1.githubusercontent.com/u/242131?v=4&s=117" width="117">](https://github.com/literator)
+
+[<img alt="madeinqc" src="https://avatars0.githubusercontent.com/u/7191124?v=4&s=117" width="117">](https://github.com/madeinqc)[<img alt="kolisko" src="https://avatars0.githubusercontent.com/u/460056?v=4&s=117" width="117">](https://github.com/kolisko)[<img alt="dukemike" src="https://avatars3.githubusercontent.com/u/11562781?v=4&s=117" width="117">](https://github.com/dukemike)[<img alt="rafalwojcik" src="https://avatars3.githubusercontent.com/u/512353?v=4&s=117" width="117">](https://github.com/rafalwojcik)[<img alt="thad" src="https://avatars1.githubusercontent.com/u/139789?v=4&s=117" width="117">](https://github.com/thad)
+
+[<img alt="chrispix" src="https://avatars0.githubusercontent.com/u/190962?v=4&s=117" width="117">](https://github.com/chrispix)[<img alt="ReadmeCritic" src="https://avatars3.githubusercontent.com/u/15367484?v=4&s=117" width="117">](https://github.com/ReadmeCritic)[<img alt="avielg" src="https://avatars3.githubusercontent.com/u/5012557?v=4&s=117" width="117">](https://github.com/avielg)[<img alt="rdougan" src="https://avatars3.githubusercontent.com/u/28582?v=4&s=117" width="117">](https://github.com/rdougan)[<img alt="grangej" src="https://avatars0.githubusercontent.com/u/604788?v=4&s=117" width="117">](https://github.com/grangej)
+
+[<img alt="fjbelchi" src="https://avatars2.githubusercontent.com/u/626713?v=4&s=117" width="117">](https://github.com/fjbelchi)[<img alt="dcvz" src="https://avatars0.githubusercontent.com/u/2475932?v=4&s=117" width="117">](https://github.com/dcvz)[<img alt="pepibumur" src="https://avatars3.githubusercontent.com/u/663605?v=4&s=117" width="117">](https://github.com/pepibumur)
+
 ## About
 
-<img src="https://github.com/carambalabs/Foundation/blob/master/ASSETS/avatar_rounded.png?raw=true" width="70" />
+<img src="https://github.com/carambalabs/Foundation/blob/master/ASSETS/logo-salmon.png?raw=true" width="200" />
 
 This project is funded and maintained by [Caramba](http://caramba.io). We 💛 open source software!
 
@@ -225,7 +242,7 @@ Contributions are welcome :metal: We encourage developers like you to help us im
 ## License
 The MIT License (MIT)
 
-Copyright (c) <2014> <Pedro Piñera>
+Copyright (c) 2017 Caramba
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,8 +1,9 @@
 import Foundation
 import CoreData
-#if os(iOS) || os(tvOS) || os(watchOS)
 
-public class CoreDataObservable<T>: RequestObservable<T>, NSFetchedResultsControllerDelegate where T:NSManagedObject {
+@available(OSX 10.12, *)
+public class CoreDataObservable<T: NSManagedObject>: RequestObservable<T>, NSFetchedResultsControllerDelegate where T:Equatable {
+
 
     // MARK: - Attributes
 
@@ -52,13 +53,23 @@ public class CoreDataObservable<T>: RequestObservable<T>, NSFetchedResultsContro
     // MARK: - NSFetchedResultsControllerDelegate
     
     public func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        
+        var index: Int?
+        var newIndex: Int?
+        #if os(iOS) || os(tvOS) || os(watchOS)
+            index = indexPath?.row
+            newIndex = newIndexPath?.row
+        #elseif os(OSX)
+            index = indexPath?[1]
+            newIndex = newIndexPath?[1]
+        #endif
         switch type {
         case .delete:
-            self.batchChanges.append(.delete(indexPath![0], anObject as! T))
+            self.batchChanges.append(.delete(index!, anObject as! T))
         case .insert:
-            self.batchChanges.append(.insert(newIndexPath![0], anObject as! T))
+            self.batchChanges.append(.insert(newIndex!, anObject as! T))
         case .update:
-            self.batchChanges.append(.update(indexPath![0], anObject as! T))
+            self.batchChanges.append(.update(index!, anObject as! T))
         default: break
         }
     }
@@ -75,4 +86,3 @@ public class CoreDataObservable<T>: RequestObservable<T>, NSFetchedResultsContro
     }
 
 }
-#endif
