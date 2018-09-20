@@ -22,7 +22,7 @@ public class CoreDataBaseStorage {
     // MARK: - Common Public
     
     #if os(iOS) || os(tvOS) || os(watchOS)
-    public override func observable<T: NSManagedObject>(request: FetchRequest<T>) -> RequestObservable<T> where T:Equatable {
+    public func observable<T: NSManagedObject>(request: FetchRequest<T>) -> RequestObservable<T> where T:Equatable {
         return CoreDataObservable(request: request, context: self.mainContext as! NSManagedObjectContext)
     }
     #endif
