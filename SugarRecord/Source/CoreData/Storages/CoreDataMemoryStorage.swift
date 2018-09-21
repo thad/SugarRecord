@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-public class MemoryStorage: CoreDataBaseStorage, Storage {
+public class CoreDataMemoryStorage: CoreDataBaseStorage, Storage {
     
     // MARK: - Storage conformance
     
