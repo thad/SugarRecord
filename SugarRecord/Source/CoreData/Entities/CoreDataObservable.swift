@@ -57,8 +57,8 @@ public class CoreDataObservable<T: NSManagedObject>: RequestObservable<T>, NSFet
         var index: Int?
         var newIndex: Int?
         #if os(iOS) || os(tvOS) || os(watchOS)
-            index = indexPath?.row
-            newIndex = newIndexPath?.row
+            index = indexPath?.first
+            newIndex = newIndexPath?.first
         #elseif os(OSX)
             index = indexPath?[1]
             newIndex = newIndexPath?[1]
