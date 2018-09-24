@@ -29,11 +29,12 @@ public class CoreDataDefaultStorage: CoreDataBaseStorage, Storage {
     }
     
     internal init(store: CoreDataStore, model: CoreDataObjectModel, migrate: Bool = true, versionController: VersionController) throws {
-        print("$$$$ init called in CoreDataDefaultStorage")
+        print("$$$$ init called in CoreDataDefaultStorage store=\(store) model=\(model) versionController=\(versionController)")
         super.init(model: model, versionController: versionController)
+        print("$$$$ objectModel=\(objectModel)")
         self.store = store
         let psc = NSPersistentStoreCoordinator(managedObjectModel: objectModel)
-        print("$$$$ objectModel=\(objectModel) psc=\(psc)")
+        print("$$$$ psc=\(psc)")
         self.persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: objectModel)
         self.persistentStore = try cdInitializeStore(store: store, storeCoordinator: persistentStoreCoordinator, migrate: migrate)
         self.rootSavingContext = cdContext(withParent: .coordinator(self.persistentStoreCoordinator), concurrencyType: .privateQueueConcurrencyType, inMemory: false)
