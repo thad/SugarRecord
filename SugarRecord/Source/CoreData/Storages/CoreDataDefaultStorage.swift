@@ -43,10 +43,10 @@ public class CoreDataDefaultStorage: CoreDataBaseStorage, Storage {
     
     // MARK: - Public
     
-    @available(OSX 10.12, *)
-    public func observable<T: NSManagedObject>(request: FetchRequest<T>) -> RequestObservable<T> {
-        return CoreDataObservable(request: request, context: self.mainContext as! NSManagedObjectContext)
-    }
+//    @available(OSX 10.12, *)
+//    override public func observable<T: NSManagedObject>(request: FetchRequest<T>) -> RequestObservable<T>  {
+//        return CoreDataObservable(request: request, context: self.mainContext as! NSManagedObjectContext)
+//    }
     
 }
 
