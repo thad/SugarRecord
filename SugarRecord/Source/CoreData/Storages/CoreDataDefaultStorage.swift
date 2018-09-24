@@ -42,12 +42,12 @@ public class CoreDataDefaultStorage: CoreDataBaseStorage, Storage {
     
     
     // MARK: - Public
-    #if os(OSX)
+    
     @available(OSX 10.12, *)
-    public func observable<T: NSManagedObject>(request: FetchRequest<T>) -> RequestObservable<T> where T:Equatable {
+    public func observable<T: NSManagedObject>(request: FetchRequest<T>) -> RequestObservable<T> {
         return CoreDataObservable(request: request, context: self.mainContext as! NSManagedObjectContext)
     }
-    #endif
+    
 }
 
 
