@@ -31,7 +31,6 @@ public class CoreDataDefaultStorage: CoreDataBaseStorage, Storage {
     internal init(store: CoreDataStore, model: CoreDataObjectModel, migrate: Bool = true, versionController: VersionController) throws {
         print("$$$$ init called in CoreDataDefaultStorage store=\(store) model=\(model) versionController=\(versionController)")
         super.init(model: model, versionController: versionController)
-        print("$$$$ objectModel=\(objectModel)")
         self.store = store
         let psc = NSPersistentStoreCoordinator(managedObjectModel: objectModel)
         print("$$$$ psc=\(psc)")

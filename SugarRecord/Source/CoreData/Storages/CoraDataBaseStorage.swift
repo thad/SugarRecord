@@ -119,9 +119,11 @@ public class CoreDataBaseStorage {
     
     internal init(model: CoreDataObjectModel, versionController: VersionController) {
         self.objectModel = model.model()!
+        print("$$$$ objectModel=\(objectModel)")
         self.rootSavingContext = cdContext(withParent: .coordinator(self.persistentStoreCoordinator), concurrencyType: .privateQueueConcurrencyType, inMemory: false)
+        print("$$$$ rootSavingContext=\(rootSavingContext)")
         self.mainContext = cdContext(withParent: .context(self.rootSavingContext), concurrencyType: .mainQueueConcurrencyType, inMemory: false)
-        
+        print("$$$$ mainContext=\(mainContext)")
         #if DEBUG
         versionController.check()
         #endif
